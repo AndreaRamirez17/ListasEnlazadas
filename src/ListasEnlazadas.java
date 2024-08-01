@@ -2,40 +2,33 @@
 public class ListasEnlazadas{
     public static void main(String[] args){
 
+         //ListNode head=null;
         //Cargamos nuestra Lista enlazada
-        ListNode head=new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(3);
-        head.next.next.next.next = new ListNode(4);
-        head.next.next.next.next.next = new ListNode(5);
+        ListNode head = ListNode.ConstruirLista();
+        if (ListNode.ListaVacia(head)) {
+            return;
+        }
 
-        //Imprimimos la lista inicial importando el metodo VerLista de la clase Metodos
+        //Imprimimos la lista inicial
         System.out.println("Lista inicial:");
-        Metodos.VerLista(head);
-        //Salto de linea
-        System.out.println();
+        ListNode.VerLista(head);
 
         //Invertir la lista
-        head= Metodos.Invertir(head);
-        //Imprimir la lista importando el metodo necesario
+        head=ListNode.Invertir(head);
         System.out.println("Lista invertida: ");
-        Metodos.VerLista(head);
-        //Salto de linea
-        System.out.println();
+        ListNode.VerLista(head);
 
         //Encontrar el elemento medio
-        ListNode middle= Metodos.ElementoMedio(head);
-        //Imprimir el valor medio de la lista
-        System.out.println("Elemento medio: ");
-        System.out.println(middle.val);
-        //Salto de linea
-        System.out.println();
+        ListNode middle= ListNode.ElementoMedio(head);
+        if (middle != null) {
+            System.out.println("Elemento medio:");
+            System.out.println(middle.val);
+        }
 
         //Eliminar los elementos duplicados de la lista
-        head= Metodos.EliminarDuplicados(head);
-        //Imprimir la lista importando el metodo necesario
+        head= ListNode.EliminarDuplicados(head);
         System.out.println("Lista sin elementos duplicados: ");
-        Metodos.VerLista(head);
+        ListNode.VerLista(ListNode.Invertir(head));
+
     }
 }
